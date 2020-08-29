@@ -1,0 +1,77 @@
+Input File:
+
+const c = 5;
+var a, b;
+begin
+  a := 2;
+  b := 2 + c;
+end.
+
+Internal Representation of Token File:
+
+28 2 c 9 3 5 18 29 2 a 17 2 b 18 21 2 a 20 3 2 18 2 b 20 3 2 4 2 c 18 22 19
+
+Symbolic Representation of Token File:
+
+constsym identsym c eqsym numbersym 5 semicolonsym varsym identsym a commasym identsym b semicolonsym beginsym identsym a becomessym numbersym 2 semicolonsym identsym b becomessym numbersym 2 plussym identsym c semicolonsym endsym periodsym
+
+No errors, program is syntactically correct.
+
+Generated Assembly Code:
+
+7 0 0 1
+6 0 0 6
+1 0 0 2
+4 0 0 4
+1 0 0 2
+1 1 0 5
+13 0 0 1
+4 0 0 5
+11 0 0 3
+
+Your Program In Interpreted Assembly Language:
+
+Line  OP   R  L  M
+ 0    jmp  0  0  1
+ 1    inc  0  0  6
+ 2    lit  0  0  2
+ 3    sto  0  0  4
+ 4    lit  0  0  2
+ 5    lit  1  0  5
+ 6    add  0  0  1
+ 7    sto  0  0  5
+ 8    sio  0  0  3
+
+Execution of Your Program In the Virtual Machine:
+
+                 pc   bp   sp  registers
+Initial values    0    1    0  0 0 0 0 0 0 0 0
+Stack: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+
+                    pc   bp   sp   registers
+  0 jmp  0  0  1     1    1    0   0 0 0 0 0 0 0 0
+Stack:
+
+  1 inc  0  0  6     2    1    6   0 0 0 0 0 0 0 0
+Stack: 0 0 0 0 0 0
+
+  2 lit  0  0  2     3    1    6   2 0 0 0 0 0 0 0
+Stack: 0 0 0 0 0 0
+
+  3 sto  0  0  4     4    1    6   2 0 0 0 0 0 0 0
+Stack: 0 0 0 0 2 0
+
+  4 lit  0  0  2     5    1    6   2 0 0 0 0 0 0 0
+Stack: 0 0 0 0 2 0
+
+  5 lit  1  0  5     6    1    6   2 5 0 0 0 0 0 0
+Stack: 0 0 0 0 2 0
+
+  6 add  0  0  1     7    1    6   7 5 0 0 0 0 0 0
+Stack: 0 0 0 0 2 0
+
+  7 sto  0  0  5     8    1    6   7 5 0 0 0 0 0 0
+Stack: 0 0 0 0 2 7
+
+  8 sio  0  0  3     9    1    6   7 5 0 0 0 0 0 0
+Stack: 0 0 0 0 2 7
